@@ -1,0 +1,23 @@
+<ion-content padding>
+	<ion-grid>
+		<ion-row>
+			<ion-col col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 [ngClass]="'loginform'">
+				<p align="center"><ion-icon name="ios-cart-outline" [ngClass]="'logincarticon'"></ion-icon></p>
+				<h4 align="center">Sign in</h4>
+				<form [formGroup]="loginForm">
+					<ion-input type="text" placeholder="Username" formControlName="username"></ion-input>
+					<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+					<p ion-text color="danger" align="center">{{message}}</p>
+					<button ion-button block color="orange" (click)="checkuser()">
+						Sign in
+					</button>
+				</form>
+				<p ion-text align="center" color="gray">Create a new account?
+					<span ion-text color="orange">Sign up</span>
+				</p>
+				<p ion-text align="center" color="gray">Forgot Password</p>
+				<p ion-text align="center" color="primary" (click)="skiplogin()">Skip login</p>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,54 @@
+<!--
+  Generated template for the CheckoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar hideBackButton="true">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title align="center">Payment</ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="gocart()">
+          <ion-icon name="ios-cart"></ion-icon>
+        </button>
+        <button ion-button (click)="gohome()">
+          <ion-icon name="ios-home"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content >
+    <ion-row>
+        <ion-col col-12>
+          <ion-list>
+            <ion-list-header>
+              <p ion-text color="orange">Items Added for Payment</p>
+            </ion-list-header>
+            <ion-item *ngFor="let item of ProcessItems" no-lines>
+              <p item-start>{{item.desc}}</p>
+              <p item-end>{{item.price}}</p>
+            </ion-item>            
+            <ion-item>
+                <p item-start ion-text color="orange">
+                  <b>Total</b>
+                </p>
+                <p item-end ion-text color="orange">
+                  <b>${{totalamount}}</b>
+                </p>
+              </ion-item>
+          </ion-list>         
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 padding>
+          <button ion-button block color="orange" (click)="pay()">
+            Pay Now
+          </button>
+        </ion-col>
+      </ion-row>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title align="center">Eshop</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="gotosearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button (click)="gotocart()">
+        <ion-icon name="ios-cart">
+            <ion-badge id="notifications-badge" *ngIf="badgeCount>0" color="danger">{{badgeCount}}</ion-badge>
+        </ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col no-padding col-6 *ngFor="let p of products">
+        <product [product]="p"></product>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

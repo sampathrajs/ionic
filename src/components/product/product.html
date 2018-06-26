@@ -1,0 +1,8 @@
+<ion-card (click)="openproductpage(product.id)">
+  <img [ngClass]="'displayimg'" src="{{product.img}}"/>
+  <ion-card-content>
+      <h5 [ngClass]="'company ellipsis'" ion-text color="dark"><strong>{{product.name}}</strong></h5>
+      <p [ngClass]="'product ellipsis'" ion-text color="dark">{{product.desc}}</p>
+      <h4 ion-text color="danger"><b>{{product.price}}</b></h4>      
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,117 @@
+<!--
+  Generated template for the MycartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title align="center">My Cart</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="gotosearch()">
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+      <button ion-button (click)="gotohome()">
+        <ion-icon name="ios-home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+      <ion-col col-12 [ngClass]="'cartempty'" *ngIf="cartItems.length==0" align="center">
+          <ion-icon name="ios-cart" color="gray"></ion-icon>
+          <p ion-text color="gray">No Items added in the cart, your cart is empty</p>
+          <p ion-text color="orange" (click)="gotohome()"><b>Back to Home</b></p>
+      </ion-col>
+    <ion-col col-12 col-sm-6 col-md-4  *ngFor="let cartItem of cartItems">
+      <ion-card no-padding>
+        <ion-card-content>
+          <ion-checkbox [ngClass]="'addcheckbox'" mode="ios" color="orange" checked="{{cartItem.checked}}" (ionChange)="updateitem(cartItem.cart_id)"></ion-checkbox>
+          <ion-img [ngClass]="'relatedproductimg'" src="{{cartItem.img}}">
+          </ion-img>
+          <h5 [ngClass]="'company ellipsis'" ion-text color="dark">
+            <strong>{{cartItem.name}}</strong>
+          </h5>
+          <p [ngClass]="'product ellipsis'" ion-text color="dark">{{cartItem.desc}}</p>
+          <p [ngClass]="'details ellipsis'">Price:
+            <span ion-text color="danger">
+              <b>{{cartItem.price}}</b>
+            </span>
+          </p>
+        </ion-card-content>
+      </ion-card>   
+      
+    </ion-col>    
+  </ion-row>
+  <ion-row *ngIf="cartItems.length>0">
+    <ion-col col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 padding>
+      <button ion-button block color="orange" (click)="processtoCheckout()">
+        Proceed to checkout
+      </button>
+    </ion-col>
+  </ion-row>
+  <!-- 
+  <ion-row>
+    <ion-col col-12>
+      <ion-list>
+        <ion-list-header>
+          <p ion-text color="orange">Items Added for Payment</p>
+        </ion-list-header>
+        <ion-item>
+          <p item-start>School bag gray</p>
+          <p item-end>$30</p>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <p item-start>School bag gray</p>
+          <p item-end>$30</p>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <p item-start>School bag gray</p>
+          <p item-end>$30</p>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <p item-start>School bag gray</p>
+          <p item-end>$30</p>
+        </ion-item>
+      </ion-list>
+      <ion-item-divider></ion-item-divider>
+      <ion-list>
+        <ion-item>
+          <p item-start ion-text color="orange">
+            <b>Total</b>
+          </p>
+          <p item-end ion-text color="orange">
+            <b>$300</b>
+          </p>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12 padding>
+      <button ion-button block color="orange">
+        Pay Now
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12 padding align="center">
+      <ion-icon name="ios-checkmark-circle-outline" color="secondary" [ngClass]="'completedicon'"></ion-icon>
+      <p ion-text color="gray">Payment Completed, your product is ready to shipping</p>
+      <button ion-button color="secondary">
+        Back to Home
+      </button>
+    </ion-col>
+  </ion-row> -->
+</ion-content>
